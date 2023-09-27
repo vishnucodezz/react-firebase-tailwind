@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import ReactSVG from './assets/react.svg';
 import Login from './components/auth/Login';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import FirebaseAuth from './firebase/firebaseAuth';
@@ -13,11 +12,12 @@ function App() {
       console.log({ user });
       if (user.emailVerified) {
         // TODO: Redirect user to blog page after login
-        // navigate('/blogs');
+         navigate('/blogs');
       }
     }
   }, [user, loading]);
   if (loading) return <div>Loading...</div>;
+ 
 
   return (
     <div
@@ -32,7 +32,7 @@ function App() {
       >
         <span className="flex">
           React<sup className="text-lg font-mono">TS</sup>
-          <img src={ReactSVG} alt="" />
+          
         </span>
         Tailwindcss And Firebase Starter Template
       </h1>

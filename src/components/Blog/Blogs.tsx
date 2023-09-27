@@ -2,6 +2,7 @@ import { addDoc, collection } from 'firebase/firestore';
 import FireStore from '../../firebase/fireStore';
 import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
+import BlogTable from './BlogTable';
 
 function Blogs() {
   const saveBlog = async (payload: { title: string; content: string }) => {
@@ -22,9 +23,14 @@ function Blogs() {
     }
   };
   return (
-    <div className="flex w-full">
+    <div className="bg-black font-mono  text-green-500 min-h-screen">
+    <div className="flex w-full  ">
       <Header />
       <Modal save={saveBlog} />
+    </div>
+    <div>
+    <BlogTable /> 
+    </div>
     </div>
   );
 }

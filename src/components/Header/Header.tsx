@@ -3,6 +3,9 @@ import FirebaseAuth from '../../firebase/firebaseAuth';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { signOut } from 'firebase/auth';
+import { FaReact, } from 'react-icons/fa';
+import { HiOutlinePlusSm } from 'react-icons/hi';
+import { BsFire } from 'react-icons/bs';
 
 const Header = () => {
   const [user, loading] = useAuthState(FirebaseAuth);
@@ -21,9 +24,9 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-gray-900 ">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">ReactFireBlog</a>
+        <a className="btn btn-ghost normal-case text-xl"><FaReact className="inline-block  text-sky-500" /><HiOutlinePlusSm className="inline-block" />  <BsFire className="inline-block mr-2 text-red-500" /> Blog</a>
       </div>
       <div className="flex-none">
         <div
@@ -51,26 +54,26 @@ const Header = () => {
             </div>
           </label>
         </div>
-        <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="dropdown dropdown-end ">
+          <label tabIndex={0} className="btn btn-ghost btn-circle avatar border border-green-400">
             <div className="w-10 rounded-full">
               <img src={user?.photoURL || ''} />
             </div>
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="border menu menu-sm dropdown-content bg-gray-900  mt-3 z-[1] p-2 shadow rounded-box w-52"
           >
             <li>
-              <a className="justify-between text-base">
-                Name: {/* TODO: Show Name and Email */}
-                {/* <span className="badge badge-outline">{user?.displayName}</span> */}
+              <a className="ml-2 text-base hover:text-red-500">
+                Name: 
+                { <span>{user?.displayName}</span> }
               </a>
             </li>
 
             <li>
               <button
-                className="text-base text-black text-start"
+                className="text-base ml-2 hover:text-red-600"
                 onClick={() => {
                   /*handle signout*/
                   handleLogout();
